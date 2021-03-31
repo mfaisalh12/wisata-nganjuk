@@ -132,7 +132,7 @@
                         <div class="form-group row mb-0">
                             <div class="col-md-6 offset-md-2">
                                 <button type="submit" class="btn btn-primary">
-                                    Save
+                                    Simpan
                                 </button>
                             </div>
                         </div>

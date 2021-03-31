@@ -18,7 +18,7 @@
             <div class="card">
                 <div class="card-body">
                     <h3>Sukses Check Out</h3>
-                    <h5>Pesanan anda sudah sukses dicheck out selanjutnya untuk pembayaran silahkan transfer di rekening <strong>Bank BRI Nomer Rekening : 32113-821312-123</strong> dengan nominal : <strong>Rp. {{ number_format($pesanan->kode+$pesanan->jumlah_harga) }}</strong></h5>
+                    <h5>Anda berhasil membeli tiket selanjutnya untuk pembayaran silahkan transfer di rekening <strong>Bank BNI Nomer Rekening : 0822233344</strong> dengan nominal : <strong>Rp. {{ number_format($pesanan->kode+$pesanan->jumlah_harga) }}</strong></h5>
                 </div>
             </div>
             <div class="card mt-2">
@@ -31,7 +31,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Gambar</th>
-                                <th>Nama Barang</th>
+                                <th>Nama Tempat</th>
                                 <th>Jumlah</th>
                                 <th>Harga</th>
                                 <th>Total Harga</th>
@@ -44,11 +44,11 @@
                             <tr>
                                 <td>{{ $no++ }}</td>
                                 <td>
-                                    <img src="{{ url('uploads') }}/{{ $pesanan_detail->barang->gambar }}" width="100" alt="...">
+                                    <img src="{{ url('uploads') }}/{{ $pesanan_detail->tempat->gambar }}" width="100" alt="...">
                                 </td>
-                                <td>{{ $pesanan_detail->barang->nama_barang }}</td>
+                                <td>{{ $pesanan_detail->tempat->nama_tempat }}</td>
                                 <td>{{ $pesanan_detail->jumlah }} kain</td>
-                                <td align="right">Rp. {{ number_format($pesanan_detail->barang->harga) }}</td>
+                                <td align="right">Rp. {{ number_format($pesanan_detail->tempat->harga) }}</td>
                                 <td align="right">Rp. {{ number_format($pesanan_detail->jumlah_harga) }}</td>
                                 
                             </tr>

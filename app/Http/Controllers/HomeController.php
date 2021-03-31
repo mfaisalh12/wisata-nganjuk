@@ -1,7 +1,7 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Barang;
+use App\Tempat;
 use Illuminate\Http\Request;
 
 class HomeController extends Controller
@@ -23,7 +23,7 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $barangs = Barang::paginate(20);
-        return view('home', compact('barangs'));
+        $tempats = Tempat::paginate(20);
+        return view('home', compact('tempats'));
     }
 }

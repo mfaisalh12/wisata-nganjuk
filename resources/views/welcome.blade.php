@@ -8,6 +8,8 @@
 
         <!-- Fonts -->
         <link href="https://fonts.googleapis.com/css?family=Nunito:200,600" rel="stylesheet">
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Rochester&display=swap" rel="stylesheet">
 
         <!-- Styles -->
         <style>
@@ -16,28 +18,19 @@
                 color: #636b6f;
                 font-family: 'Nunito', sans-serif;
                 font-weight: 200;
-                height: 100vh;
+                height: 80vh;
                 margin: 0;
-            }
-
-            .full-height {
-                height: 100vh;
             }
 
             .flex-center {
                 align-items: center;
                 display: flex;
                 justify-content: center;
+                top: 100px;
             }
 
             .position-ref {
                 position: relative;
-            }
-
-            .top-right {
-                position: absolute;
-                right: 10px;
-                top: 18px;
             }
 
             .content {
@@ -51,41 +44,58 @@
             .links > a {
                 color: #636b6f;
                 padding: 0 25px;
-                font-size: 13px;
+                font-size: 18px;
                 font-weight: 600;
                 letter-spacing: .1rem;
                 text-decoration: none;
                 text-transform: uppercase;
             }
 
-            .m-b-md {
-                margin-bottom: 30px;
+            div h1{
+                font-family: 'Rochester', cursive;
+                color: black;
+                margin-bottom: 0;
+            }
+            .red {
+                color: red;
+            }
+            #home, #register,
+            #login{
+                padding: 6px 10px;
+                border-radius: 30px;
+            }
+            #home:hover,
+            #login:hover{
+                background: red;
+                color: white;
+            }
+            #register:hover{
+                background: #6e6e6e;
+                color: white;
             }
         </style>
     </head>
     <body>
-        <div class="flex-center position-ref full-height">
-            @if (Route::has('login'))
-                <div class="top-right links">
-                    @auth
-                        <a href="{{ url('/home') }}">Home</a>
-                    @else
-                        <a href="{{ route('login') }}">Login</a>
-
-                        @if (Route::has('register'))
-                            <a href="{{ route('register') }}">Register</a>
-                        @endif
-                    @endauth
-                </div>
-            @endif
-
-            <div class="content">
-                <div class="title m-b-md">
-                    <img src="{{ url('images/logo.png') }}" class="rounded mx-auto d-block" width="700" alt="">
-                </div>
-
-               
+        <div class="content">
+            <div class="title">
+                <h1><span class="red">W</span>isataku</h1>
             </div>
+            <p>Temukan dan beli tiket wisata dengan mudah</p>   
+        </div> 
+        <div class="flex-center position-ref">
+        @if (Route::has('login'))
+            <div class="text-center links">
+                @auth
+                    <a href="{{ url('/home') }}" id="home">Home</a>
+                @else
+                    <a href="{{ route('login') }}" id="login">Login</a>
+
+                    @if (Route::has('register'))
+                        <a href="{{ route('register') }}" id="register">Register</a>
+                    @endif
+                @endauth
+            </div>
+        @endif
         </div>
     </body>
 </html>

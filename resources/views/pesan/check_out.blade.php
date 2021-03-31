@@ -1,22 +1,22 @@
 @extends('layouts.app')
 @section('content')
-<div class="container">
+<div class="container mt-top">
     <div class="row">
-        <div class="col-md-12">
+        <div class="col-md-12 mt-5">
             <a href="{{ url('home') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Kembali</a>
         </div>
         <div class="col-md-12 mt-2">
-            <nav aria-label="breadcrumb">
+            <div aria-label="breadcrumb">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="{{ url('home') }}">Home</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Check Out</li>
                 </ol>
-            </nav>
+            </div>
         </div>
         <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
-                    <h3><i class="fa fa-shopping-cart"></i> Check Out</h3>
+                    <h3><i class="fa fa-ticket-alt"></i> Check Out</h3>
                     @if(!empty($pesanan))
                     <p align="right">Tanggal Pesan : {{ $pesanan->tanggal }}</p>
                     <table class="table table-striped">
@@ -24,7 +24,7 @@
                             <tr>
                                 <th>No</th>
                                 <th>Gambar</th>
-                                <th>Nama Barang</th>
+                                <th>Nama Tempat</th>
                                 <th>Jumlah</th>
                                 <th>Harga</th>
                                 <th>Total Harga</th>
@@ -37,11 +37,11 @@
                             <tr>
                                 <td>{{ $no++ }}</td>
                                 <td>
-                                    <img src="{{ url('uploads') }}/{{ $pesanan_detail->barang->gambar }}" width="100" alt="...">
+                                    <img src="{{ url('uploads') }}/{{ $pesanan_detail->tempat->gambar }}" width="100" alt="...">
                                 </td>
-                                <td>{{ $pesanan_detail->barang->nama_barang }}</td>
-                                <td>{{ $pesanan_detail->jumlah }} kain</td>
-                                <td align="right">Rp. {{ number_format($pesanan_detail->barang->harga) }}</td>
+                                <td>{{ $pesanan_detail->tempat->nama_tempat }}</td>
+                                <td>{{ $pesanan_detail->jumlah }} tiket</td>
+                                <td align="right">Rp. {{ number_format($pesanan_detail->tempat->harga) }}</td>
                                 <td align="right">Rp. {{ number_format($pesanan_detail->jumlah_harga) }}</td>
                                 <td>
                                     <form action="{{ url('check-out') }}/{{ $pesanan_detail->id }}" method="post">
@@ -57,7 +57,7 @@
                                 <td align="right"><strong>Rp. {{ number_format($pesanan->jumlah_harga) }}</strong></td>
                                 <td>
                                     <a href="{{ url('konfirmasi-check-out') }}" class="btn btn-success" onclick="return confirm('Anda yakin akan Check Out ?');">
-                                        <i class="fa fa-shopping-cart"></i> Check Out
+                                        <i class="fa fa-ticket-alt"></i> Check Out
                                     </a>
                                 </td>
                             </tr>
@@ -66,8 +66,7 @@
                     @endif
                 </div>
             </div>
-        </div>
-        
+        </div>   
     </div>
 </div>
 @endsection

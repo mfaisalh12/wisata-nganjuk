@@ -6,9 +6,9 @@ use Illuminate\Database\Eloquent\Model;
 
 class PesananDetail extends Model
 {
-    public function barang()
+    public function tempat()
 	{
-	      return $this->belongsTo('App\Barang','barang_id', 'id');
+	      return $this->belongsTo('App\Tempat','tempat_id', 'id');
 	}
 
 	public function pesanan()

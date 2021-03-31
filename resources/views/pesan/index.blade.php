@@ -1,60 +1,62 @@
 @extends('layouts.app')
 
 @section('content')
-<div class="container">
+<div class="container mt-3">
     <div class="row">
         <div class="col-md-12">
             <a href="{{ url('home') }}" class="btn btn-primary"><i class="fa fa-arrow-left"></i> Kembali</a>
         </div>
         <div class="col-md-12 mt-2">
-            <nav aria-label="breadcrumb">
+            <div aria-label="breadcrumb">
               <ol class="breadcrumb">
                 <li class="breadcrumb-item"><a href="{{ url('home') }}">Home</a></li>
-                <li class="breadcrumb-item active" aria-current="page">{{ $barang->nama_barang }}</li>
+                <li class="breadcrumb-item active" aria-current="page">{{ $tempat->nama_tempat }}</li>
               </ol>
-            </nav>
+            </div>
         </div>
-        <div class="col-md-12 mt-1">
+        <div class="col-md-12">
             <div class="card">
                 <div class="card-body">
                     <div class="row">
                         <div class="col-md-6">
-                            <img src="{{ url('uploads') }}/{{ $barang->gambar }}" class="rounded mx-auto d-block" width="100%" alt=""> 
+                            <img src="{{ url('uploads') }}/{{ $tempat->gambar }}" class="rounded mx-auto d-block" width="100%" alt=""> 
                         </div>
                         <div class="col-md-6 mt-5">
-                            <h2>{{ $barang->nama_barang }}</h2>
+                            <h2>{{ $tempat->nama_tempat }}</h2>
                             <table class="table">
                                 <tbody>
                                     <tr>
-                                        <td>Harga</td>
+                                        <td>Harga Tiket</td>
                                         <td>:</td>
-                                        <td>Rp. {{ number_format($barang->harga) }}</td>
+                                        <td>Rp. {{ number_format($tempat->harga) }}</td>
                                     </tr>
                                     <tr>
-                                        <td>Stok</td>
+                                        <td>Stok Tiket</td>
                                         <td>:</td>
-                                        <td>{{ number_format($barang->stok) }}</td>
+                                        <td>{{ number_format($tempat->stok) }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td>Lokasi</td>
+                                        <td>:</td>
+                                        <td>{{ $tempat->alamat }}</td>
                                     </tr>
                                     <tr>
                                         <td>Keterangan</td>
                                         <td>:</td>
-                                        <td>{{ $barang->keterangan }}</td>
+                                        <td>{{ $tempat->keterangan }}</td>
                                     </tr>
                                    
                                     <tr>
                                         <td>Jumlah Pesan</td>
                                         <td>:</td>
                                         <td>
-                                             <form method="post" action="{{ url('pesan') }}/{{ $barang->id }}" >
+                                             <form method="post" action="{{ url('pesan') }}/{{ $tempat->id }}" >
                                             @csrf
                                                 <input type="text" name="jumlah_pesan" class="form-control" required="">
-                                                <button type="submit" class="btn btn-primary mt-2"><i class="fa fa-shopping-cart"></i> Masukkan Keranjang</button>
+                                                <button type="submit" class="btn btn-primary mt-2"><i class="fa fa-ticket-alt"></i> Booking</button>
                                             </form>
                                         </td>
                                     </tr>
-                                   
-                                    
-                                    
                                 </tbody>
                             </table>
                         </div>
